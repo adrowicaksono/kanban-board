@@ -5,6 +5,7 @@ var config = {
     storageBucket: "",
   };
   firebase.initializeApp(config);
+  
   var db = firebase.database();
   
   export default db

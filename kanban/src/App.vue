@@ -1,9 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue">
+        <a href="#!" class="brand-logo">Kanban App</a>
+        <ul class="right hide-on-med-and-down">
+          <li><router-link to="/">Home</router-link></li>
+          <li> <router-link to="/about">About</router-link></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="nav"></div>
     <router-view/>
   </div>
 </template>

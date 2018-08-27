@@ -1,5 +1,5 @@
 <template>
-    <v-card>
+    <v-card class="respon-font">
         <v-container
           fluid
           grid-list-lg
@@ -46,16 +46,17 @@ export default {
     props : ['job'],
     data(){
         return{
-            status : ['backlog','doing','done']
+            status : ['backlog','todo','doing','done']
         }
     },
     methods:{
         next(){
             let indxStatus = this.status.indexOf(this.job.status)
             let newStatus = this.job.status
-            if((indxStatus + 1) < 3){
+            if((indxStatus + 1) < 4){
                 newStatus = this.status[indxStatus+1]
             }
+            
             var postData = {
                 title : this.job.title,
                 job : this.job.job,
@@ -91,4 +92,13 @@ export default {
     },
 }
 </script>
+
+
+<style scoped>
+@media(max-width: 786px) {
+  .respon-font {
+    font-size: 9px;
+  }
+}
+</style>
 

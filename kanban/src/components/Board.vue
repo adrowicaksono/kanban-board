@@ -3,21 +3,23 @@
     <v-btn slot="activator" color="primary" dark>Open Dialog</v-btn>
     <div
       id="e3"
-      style="max-width: 500px; ;"
-      class="grey lighten-3"
+      style="max-width: 500px;"
+      class="grey lighten-3 respon-font"
+
     >
       <v-toolbar
         v-bind:color="color"
         dark
       >
-        <v-layout>
+      
+        <v-layout >
           <v-flex xs2>
             <v-btn icon v-on:click="add">
               <v-icon>add</v-icon>
             </v-btn>  
           </v-flex>
           <v-spacer></v-spacer>
-          <v-flex xs10>
+          <v-flex xs10 >
             <v-toolbar-title>{{status}}</v-toolbar-title>
           </v-flex>
         </v-layout>
@@ -35,12 +37,12 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="500px">
     
-      <v-card>
+      <v-card >
         <v-card-title>
           <span class="headline">ADD JOB</span>
         </v-card-title>
         <v-card-text>
-          <v-container grid-list-md>
+          <v-container grid-list-md >
             <v-layout wrap>
               <v-flex xs12>
                 <v-text-field v-model="title" label="title" required></v-text-field>
@@ -109,3 +111,4 @@ export default {
 
 }
 </script>
+

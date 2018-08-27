@@ -2,29 +2,31 @@
   <div class="home">
     <v-vontainer grid-list-md text-xs-ceter>
       <v-layout row wrap>
-        <v-spacer></v-spacer>
-          <v-flex xs2>
+          <v-flex xs3>
             <Board 
               v-bind:jobs="jobs"
               v-bind:color="backlogHead"
               v-bind:status="statusBacklog"/>
           </v-flex>
-         <v-spacer></v-spacer>
-        <v-flex xs2>
+          <v-flex xs3>
+              <Board 
+                v-bind:jobs="jobs"
+                v-bind:color="todoHead"
+                v-bind:status="statusTodo"/>
+          </v-flex>
+        <v-flex xs3>
           <Board 
             v-bind:jobs="jobs"
             v-bind:color="doingHead"
             v-bind:status="statusDoing"/>
         </v-flex>
-         <v-spacer></v-spacer>
-        <v-flex xs2>
+        <v-flex xs3>
           <Board 
             v-bind:jobs="jobs"
             v-bind:color="doneHead"
             v-bind:status="statusDone"
             />
         </v-flex>
-        <v-spacer></v-spacer>
       </v-layout>
     </v-vontainer>
 </div>
@@ -35,6 +37,7 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import Board from '@/components/Board.vue'
 import db from '@/firebase/firebase.js'
+import Navbar from '@/components/Navbar.vue'
 import draggable from 'vuedraggable'
 
 export default {
@@ -42,9 +45,11 @@ export default {
   data(){
     return{
       backlogHead: "red",
+      todoHead: "light-blue",
       doingHead: "lime",
       doneHead: "light-green",
       statusBacklog : "backlog",
+      statusTodo : "todo",
       statusDoing : "doing",
       statusDone : "done",
       jobs : [],
@@ -53,6 +58,7 @@ export default {
   components: {
     Board,
     draggable,
+    Navbar
   },
   mounted(){
     this.getJobList()
@@ -67,7 +73,6 @@ export default {
           jobsCollection.push(snapshotDatas[i])
         }
         this.jobs = [...jobsCollection]
-       
         updateStarCount(postElement, snapshot.val());
         })
     }
@@ -75,3 +80,5 @@ export default {
 
 }
 </script>
+
+
